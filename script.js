@@ -17,7 +17,7 @@ const displayNumber = function (number) {
   document.querySelector('.number').innerText = number;
 };
 
-document.querySelector('.check').addEventListener('click', function () {
+const comparison = function () {
   const guess = Number(document.querySelector('.guess').value);
 
   // When no number
@@ -51,6 +51,14 @@ document.querySelector('.check').addEventListener('click', function () {
       displayBackgroundColor('#d94545');
       document.querySelector('.check').style.display = 'none';
     }
+  }
+};
+
+document.querySelector('.check').addEventListener('click', comparison);
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter' && score > 0) {
+    comparison();
   }
 });
 
